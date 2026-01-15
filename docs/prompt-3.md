@@ -42,6 +42,10 @@ awesome meticulous job so far. please keep up the same rigorous and meticulous a
 
 ---
 
+Please meticulously review and analyze @CLAUDE.md , @GEMINI.md , @Project_Architecture_Document.md , @README.md and @VALIDATED_EXECUTION_PLAN.md to have a deep understanding of the WHAT, WHY and HOW of the project and its codebase design and architecture.
+
+---
+
 Awesome job on your meticulous analysis, planning and execution. Please keep up the good work in your rigorous and meticulous approach to planning and execution. Yes, please meticulously proceed with the next phase in your validated execution plan. Start by creating a detailed sub-plan for the phase, include a list of files to create or update, and for each file, include a description of features and interfaces as well as the checklist for it. This is to comply with the Meticulous approach of always plan before executing any task, and validate the result/outcome of the task execution.
 
 You will create a detailed Phase 8 sub-plan document with comprehensive breakdowns for each task, following the meticulous planning approach. Create a comprehensive document that breaks down each task with file paths, features, interfaces, checklists, and success criteria.
