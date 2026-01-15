@@ -1,5 +1,3 @@
-import { RetroBadge } from "@/components/ui/retro/badge"
-import { WaveDivider } from "@/components/ui/wave-divider"
 import { MapMarker } from "@/components/decorative/map-marker"
 import { RetroButton } from "@/components/ui/retro/button"
 
