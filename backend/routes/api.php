@@ -1,3 +1,6 @@
-// Append to existing routes
-Route::post('/payment/intent', [App\Http\Controllers\Api\PaymentController::class, 'createIntent']);
-Route::post('/webhook/stripe', [App\Http\Controllers\Api\PaymentController::class, 'webhook']);
+// Append Admin Routes
+Route::group(['prefix' => 'admin', 'middleware' => ['auth:sanctum']], function () {
+    Route::get('/stats', [App\Http\Controllers\Api\Admin\DashboardController::class, 'stats']);
+    // Placeholder for resource routes if we implemented full CRUD controllers
+    // Route::apiResource('orders', OrderController::class);
+});
