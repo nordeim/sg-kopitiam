@@ -167,7 +167,7 @@ sequenceDiagram
 
 ### 6.1 Token Strategy
 Design tokens are extracted from the authoritative `static_landing_page_mockup.html` and codified in:
-- `frontend/src/styles/tokens.css`: Root CSS variables.
+- `frontend/src/styles/globals.css`: Root CSS variables (Consolidated).
 - `frontend/tailwind.config.ts`: Mapped Tailwind theme extensions.
 
 ### 6.2 The "Retro-fit" Pledge

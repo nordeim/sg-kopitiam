@@ -11,20 +11,10 @@ import { useKeyboardShortcuts } from "@/hooks/use-keyboard-shortcuts"
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
-  const [isScrolled, setIsScrolled] = React.useState(false)
   const itemCount = useCartStore((state) => state.getItemCount())
   
   // Initialize keyboard shortcuts
   useKeyboardShortcuts()
-
-  // Handle scroll effect
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
   // Lock body scroll when mobile menu is open
   React.useEffect(() => {
@@ -39,9 +29,8 @@ export function Header() {
     <header
       className={cn(
         "header transition-all duration-300",
-        isScrolled
-          ? "py-2 bg-espresso-dark/95 border-b-3 border-sunrise-amber shadow-lg"
-          : "py-4 bg-espresso-dark/95 border-b-3 border-sunrise-amber"
+        // Force dark background always to match mockup, slightly more opaque on scroll if desired, but consistent base
+        "py-4 bg-espresso-dark/95 border-b-3 border-sunrise-amber shadow-lg"
       )}
       role="banner"
     >
