@@ -9,9 +9,10 @@ export const checkoutService = {
     try {
       const response = await apiClient.createOrder(payload);
       return response;
-    } catch (error: any) {
+    } catch (error: unknown) {
       console.error("Checkout Error:", error);
-      throw new Error(error.message || "Failed to place order. Please try again.");
+      const message = error instanceof Error ? error.message : "Failed to place order. Please try again.";
+      throw new Error(message);
     }
   },
 

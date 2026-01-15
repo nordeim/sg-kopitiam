@@ -25,7 +25,7 @@ export default function OrderConfirmationPage() {
         
         <h1 className="font-display text-4xl text-espresso-dark mb-2">Order Confirmed!</h1>
         <p className="text-coffee-medium mb-8">
-          Thank you for being part of our story. We've sent a receipt to your email.
+          Thank you for being part of our story. We&apos;ve sent a receipt to your email.
         </p>
 
         <div className="bg-white p-4 rounded-xl border-2 border-dashed border-espresso-dark/20 mb-8">

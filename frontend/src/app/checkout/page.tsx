@@ -10,9 +10,18 @@ import { Header } from "@/components/layout/header"
 
 type Step = "details" | "pickup" | "review"
 
+interface CheckoutData {
+  name?: string;
+  email?: string;
+  phone?: string;
+  pdpaConsent?: boolean;
+  locationId?: string;
+  time?: string;
+}
+
 export default function CheckoutPage() {
   const [step, setStep] = useState<Step>("details")
-  const [checkoutData, setCheckoutData] = useState<any>({})
+  const [checkoutData, setCheckoutData] = useState<CheckoutData>({})
   const items = useCartStore(state => state.items)
 
   if (items.length === 0) {

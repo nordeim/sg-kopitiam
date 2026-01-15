@@ -6,6 +6,7 @@ import { RetroBadge } from "@/components/ui/retro/badge"
 import { BeanBounce } from "@/components/decorative/bean-bounce"
 import { WaveDivider } from "@/components/ui/wave-divider"
 import { cn } from "@/lib/utils"
+import Link from "next/link"
 
 const CATEGORIES = [
   { id: "all", label: "All" },
@@ -175,10 +176,10 @@ export default function MenuPage() {
         {/* Footer Link */}
         <div className="text-center mt-12">
           <Link 
-            href="/order" 
+            href="/checkout" 
             className="inline-flex items-center gap-2 font-display font-bold text-xl text-latte-cream border-2 border-latte-cream px-6 py-3 rounded-full hover:bg-latte-cream hover:text-sunrise-coral transition-colors"
           >
-            View Full Menu →
+            Checkout Now →
           </Link>
         </div>
       </div>

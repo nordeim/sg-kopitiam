@@ -18,19 +18,19 @@ export default function HomePage() {
           <div className="max-w-[700px] animate-in fade-in slide-in-from-bottom-8 duration-1000">
             {/* Vintage Badge */}
             <div className="inline-flex items-center gap-3 bg-espresso-dark text-latte-cream px-5 py-3 rounded-full font-display font-semibold text-sm mb-6 shadow-md border-2 border-dashed border-sunrise-coral hover:scale-105 transition-transform duration-300">
-              <Coffee className="w-6 h-6" />
+              < Coffee className="w-6 h-6" />
               <span>Est. 1973 • Singapore Heritage</span>
             </div>
 
             <h1 className="font-display font-bold text-espresso-dark leading-[1.1] mb-6 text-[clamp(2.5rem,6vw,4.5rem)]">
-              Where Singapore's
+              Where Singapore&apos;s
               <span className="block text-sunrise-coral-dark italic">Morning Ritual</span>
               Begins
             </h1>
 
             <p className="text-xl text-coffee-medium mb-8 max-w-[550px] leading-relaxed">
               Experience the perfect blend of tradition and modernity in every cup. 
-              Crafted with love since 1973, our kopi tells the story of Singapore's kopitiam heritage.
+              Crafted with love since 1973, our kopi tells the story of Singapore&apos;s kopitiam heritage.
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">

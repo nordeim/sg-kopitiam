@@ -6,7 +6,7 @@ export function useInView(options = {}) {
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
+      if (entry?.isIntersecting) {
         setIsInView(true)
         // Disconnect after first trigger (optional, based on UX preference)
         if (ref.current) observer.disconnect()

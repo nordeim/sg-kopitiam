@@ -43,12 +43,12 @@ export function Footer() {
           <div>
             <h3 className="text-golden-hour font-display font-bold text-lg mb-4">Explore</h3>
             <ul className="space-y-2">
-              {[
+              {([
                 { label: "Our Menu", href: "/menu" },
                 { label: "Our Story", href: "/heritage" },
                 { label: "Locations", href: "/locations" },
                 { label: "Order Online", href: "/menu" },
-              ].map((link) => (
+              ] as const).map((link) => (
                 <li key={link.label}>
                   <Link 
                     href={link.href}

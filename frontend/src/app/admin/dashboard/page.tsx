@@ -1,7 +1,5 @@
 "use client"
 
-import { RetroButton } from "@/components/ui/retro/button"
-
 export default function DashboardPage() {
   return (
     <div className="space-y-8">

@@ -1,12 +1,11 @@
 "use client"
 
 import { useCartStore } from "@/stores/cart-store"
-import { RetroSheet, RetroSheetContent, RetroSheetHeader, RetroSheetTitle, RetroSheetTrigger } from "@/components/ui/retro/sheet"
+import { RetroSheet, RetroSheetContent, RetroSheetHeader, RetroSheetTitle, RetroSheetTrigger, RetroSheetClose } from "@/components/ui/retro/sheet"
 import { RetroButton } from "@/components/ui/retro/button"
 import { formatPrice } from "@/lib/utils"
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react"
 import { ReactNode } from "react"
-import Link from "next/link"
 
 export function CartSheet({ children }: { children: ReactNode }) {
   const { items, removeItem, updateQuantity, getFinancials } = useCartStore()

@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
+import type { Route } from "next"
 import { ShoppingCart, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useCartStore } from "@/stores/cart-store"
@@ -61,17 +62,24 @@ export function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md:block">
           <ul className="flex gap-8">
-            {["Menu", "Our Story", "Visit Us", "Order"].map((item) => (
-              <li key={item}>
-                <Link
-                  href={`/${item.toLowerCase().replace(" ", "-") === "order" ? "menu" : item.toLowerCase().replace(" ", "-") === "our-story" ? "heritage" : item.toLowerCase().replace(" ", "-") === "visit-us" ? "locations" : item.toLowerCase()}`}
-                  className="relative text-latte-cream font-bold text-base hover:text-sunrise-coral transition-colors duration-200 group py-2"
-                >
-                  {item}
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-sunrise-coral transition-all duration-300 group-hover:w-full rounded-full" />
-                </Link>
-              </li>
-            ))}
+            {["Menu", "Our Story", "Visit Us", "Order"].map((item) => {
+              const href = 
+                item === "Menu" ? "/menu" :
+                item === "Our Story" ? "/heritage" :
+                item === "Visit Us" ? "/locations" :
+                item === "Order" ? "/menu" : "/";
+              return (
+                <li key={item}>
+                  <Link
+                    href={href as Route}
+                    className="relative text-latte-cream font-bold text-base hover:text-sunrise-coral transition-colors duration-200 group py-2"
+                  >
+                    {item}
+                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-sunrise-coral transition-all duration-300 group-hover:w-full rounded-full" />
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
 
@@ -116,16 +124,23 @@ export function Header() {
           <X className="w-8 h-8" />
         </button>
 
-        {["Menu", "Our Story", "Visit Us", "Order"].map((item) => (
-          <Link
-            key={item}
-            href={`/${item.toLowerCase().replace(" ", "-") === "order" ? "menu" : item.toLowerCase().replace(" ", "-") === "our-story" ? "heritage" : item.toLowerCase().replace(" ", "-") === "visit-us" ? "locations" : item.toLowerCase()}`}
-            className="font-display text-4xl font-bold text-latte-cream hover:text-sunrise-coral transition-colors"
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            {item}
-          </Link>
-        ))}
+        {["Menu", "Our Story", "Visit Us", "Order"].map((item) => {
+          const href = 
+            item === "Menu" ? "/menu" :
+            item === "Our Story" ? "/heritage" :
+            item === "Visit Us" ? "/locations" :
+            item === "Order" ? "/menu" : "/";
+          return (
+            <Link
+              key={item}
+              href={href as Route}
+              className="font-display text-4xl font-bold text-latte-cream hover:text-sunrise-coral transition-colors"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {item}
+            </Link>
+          );
+        })}
       </div>
     </header>
   )

@@ -11,7 +11,7 @@ const NAV_ITEMS = [
   { href: "/admin/inventory", label: "Inventory", icon: Box },
   { href: "/admin/customers", label: "Customers", icon: Users },
   { href: "/admin/invoices", label: "Invoices", icon: FileText },
-]
+] as const
 
 export function AdminSidebar() {
   const pathname = usePathname()

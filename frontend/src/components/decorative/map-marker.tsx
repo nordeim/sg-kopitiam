@@ -1,7 +1,5 @@
 "use client"
 
-import { Coffee } from "lucide-react"
-
 export function MapMarker({ delay = "0s" }: { delay?: string }) {
   return (
     <div 

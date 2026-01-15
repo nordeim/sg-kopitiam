@@ -23,7 +23,7 @@ export default function HeritagePage() {
       <div className="container relative z-10">
         <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
           <h1 className="font-display text-5xl text-espresso-dark mb-2">Our Kopitiam Heritage</h1>
-          <p className="text-coffee-medium text-xl">Preserving Singapore's coffee culture since 1973</p>
+          <p className="text-coffee-medium text-xl">Preserving Singapore&apos;s coffee culture since 1973</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -31,20 +31,20 @@ export default function HeritagePage() {
           <div className="text-espresso-dark space-y-8 animate-in fade-in slide-in-from-left-8 duration-700">
             <p className="text-xl leading-relaxed">
               <span className="float-left font-display text-[5rem] leading-[0.8] mr-4 mt-2 text-sunrise-coral drop-shadow-[3px_3px_0_rgb(var(--color-latte-cream))]">I</span>
-              n 1973, Uncle Lim opened his first kopitiam stall at Tiong Bahru Market. With nothing but a trusty coffee sock, a worn marble table, and recipes passed down through generations, he began serving what would become Singapore's most beloved morning ritual.
+              n 1973, Uncle Lim opened his first kopitiam stall at Tiong Bahru Market. With nothing but a trusty coffee sock, a worn marble table, and recipes passed down through generations, he began serving what would become Singapore&apos;s most beloved morning ritual.
             </p>
 
             {/* Quote Block */}
             <div className="bg-white/30 rounded-2xl p-8 relative border-[3px] border-dashed border-sunrise-coral-dark/50 my-12">
-              <span className="absolute -top-5 left-5 font-display text-6xl text-sunrise-coral-dark/50 leading-none">"</span>
+              <span className="absolute -top-5 left-5 font-display text-6xl text-sunrise-coral-dark/50 leading-none">&quot;</span>
               <blockquote className="font-display text-xl italic leading-relaxed mb-4 relative z-10">
-                The kopitiam is more than just a place to drink coffee. It's where lawyers and laborers sit side by side, where deals are made and friendships are forged over steaming cups of kopi.
+                The kopitiam is more than just a place to drink coffee. It&apos;s where lawyers and laborers sit side by side, where deals are made and friendships are forged over steaming cups of kopi.
               </blockquote>
               <footer className="font-bold text-sunrise-coral-dark">— Uncle Lim, Founder</footer>
             </div>
 
             <p className="leading-relaxed opacity-90">
-              Today, Morning Brew Collective honors that legacy. Our coffee beans are still roasted in small batches using Uncle Lim's original 1970s roaster. Our kaya is made fresh daily. Every cup tells a story of Singapore's multicultural soul.
+              Today, Morning Brew Collective honors that legacy. Our coffee beans are still roasted in small batches using Uncle Lim&apos;s original 1970s roaster. Our kaya is made fresh daily. Every cup tells a story of Singapore&apos;s multicultural soul.
             </p>
 
             {/* Values Grid */}

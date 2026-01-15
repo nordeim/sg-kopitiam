@@ -1,11 +1,9 @@
 "use client"
 
-import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
 import { RetroButton } from "@/components/ui/retro/button"
-import { cn } from "@/lib/utils"
 
 const schema = z.object({
   name: z.string().min(2, "Name is required"),

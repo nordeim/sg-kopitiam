@@ -16,7 +16,7 @@ export function PickupScheduler({
   onNext: (data: { locationId: string, time: string }) => void,
   onBack: () => void
 }) {
-  const [selectedLocation, setSelectedLocation] = useState(LOCATIONS[0].id)
+  const [selectedLocation, setSelectedLocation] = useState(LOCATIONS[0]?.id || "")
   const [time, setTime] = useState("")
 
   const handleSubmit = (e: React.FormEvent) => {
