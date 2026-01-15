@@ -1,0 +1,74 @@
+FROM php:8.3-fpm-alpine as builder
+
+# Install build dependencies
+RUN apk add --no-cache \
+    git \
+    curl \
+    libpng-dev \
+    libxml2-dev \
+    zip \
+    unzip \
+    postgresql-dev \
+    icu-dev \
+    oniguruma-dev
+
+# Install PHP extensions
+RUN docker-php-ext-install \
+    pdo_pgsql \
+    pgsql \
+    bcmath \
+    intl \
+    opcache \
+    pcntl \
+    mbstring \
+    exif
+
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
+WORKDIR /app
+
+# Copy dependency definitions
+COPY composer.json composer.lock ./
+
+# Install dependencies (no dev, optimized)
+RUN composer install --no-dev --optimize-autoloader --no-scripts --prefer-dist
+
+# Copy application code
+COPY . .
+
+# Final Stage
+FROM php:8.3-fpm-alpine
+
+# Install runtime dependencies
+RUN apk add --no-cache \
+    libpng \
+    libxml2 \
+    libpq \
+    icu-libs \
+    libzip \
+    oniguruma
+
+# Copy extensions from builder
+COPY --from=builder /usr/local/lib/php/extensions /usr/local/lib/php/extensions
+COPY --from=builder /usr/local/etc/php/conf.d /usr/local/etc/php/conf.d
+
+WORKDIR /var/www/html
+
+# Copy application from builder
+COPY --from=builder /app /var/www/html
+
+# Set permissions
+RUN chown -R www-data:www-data /var/www/html \
+    && chmod -R 775 /var/www/html/storage \
+    && chmod -R 775 /var/www/html/bootstrap/cache
+
+# Use default production configuration
+RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
+
+# Expose port
+EXPOSE 9000
+
+USER www-data
+
+CMD ["php-fpm"]
