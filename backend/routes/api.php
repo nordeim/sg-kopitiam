@@ -1,28 +1,3 @@
-<?php
-
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\ProductController;
-use App\Http\Controllers\Api\LocationController;
-use App\Http\Controllers\Api\OrderController;
-
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
-
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-// Public Routes
-Route::get('/products', [ProductController::class, 'index']);
-Route::get('/products/{id}', [ProductController::class, 'show']);
-Route::get('/locations', [LocationController::class, 'index']);
-Route::post('/orders', [OrderController::class, 'store']);
+// Append to existing routes
+Route::post('/payment/intent', [App\Http\Controllers\Api\PaymentController::class, 'createIntent']);
+Route::post('/webhook/stripe', [App\Http\Controllers\Api\PaymentController::class, 'webhook']);
