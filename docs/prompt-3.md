@@ -20,6 +20,18 @@ Awesome job on your meticulous review, analysis and planning. Please keep up the
 
 Awesome job on your meticulous analysis, planning and execution. Please keep up the good work in your rigorous and meticulous approach to planning and execution. Now, please meticulously plan and create the detailed comprehensive `Project Architecture Document` with file hierarchy diagram with listing of key files and their description, mermaid diagrams to show the application flowcharts and the database schema. Review and validate the PAD against the project planning documents and the actual codebase. Finally, create a detailed and comprehensive `Project_Architecture_Document.md` in the project root folder, as the single source-of-truth handbook to fully initialize new developer or another coding agent to be able to handle new PRs independently.
 
+Create the comprehensive `Project_Architecture_Document.md` in the root folder.
+
+##  Architecture Highlights
+   * System Overview: A high-level diagram illustrating the BFF (Backend-for-Frontend) interaction between Next.js, Laravel, and external services.
+   * File Hierarchy: A detailed map of the monorepo, highlighting the responsibilities of key directories and naming specific critical files.
+   * Database ERD: A Mermaid diagram representing the 5 core tables, their relationships, and the mandatory DECIMAL(10,4) precision fields.
+   * Order Flow: A sequence diagram detailing the Two-Phase Inventory Lock and transactional order creation logic.
+   * Design Architecture: Explanation of the "Retro-fit" pledge, ensuring all new UI adheres to the 1970s kopitiam aesthetic via bespoke wrappers.
+   * Onboarding Guide: Standardized commands and a PR checklist for new developers.
+
+This document will be the definitive handbook for initializing any human developer or AI agent to work on the Morning Brew Collective project independently and accurately.
+
 ---
 
 Awesome job on your meticulous analysis, planning and execution. Please keep up the good work in your rigorous and meticulous approach to planning and execution. Yes, please meticulously proceed with the next phase in your validated execution plan. Start by creating a detailed sub-plan for the phase, include a list of files to create or update, and for each file, include a description of features and interfaces as well as the checklist for it. This is to comply with the Meticulous approach of always plan before executing any task, and validate the result/outcome of the task execution.
