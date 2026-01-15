@@ -1,0 +1,129 @@
+@layer tokens {
+  :root {
+    /* ─────────────────────────────────────────────────────────────
+       COLOR SYSTEM — "SUNRISE AT THE KOPITIAM"
+        defined as RGB triplets for Tailwind opacity support
+       ───────────────────────────────────────────────────────────── */
+    
+    /* Primary Palette — Cheerful Morning Warmth */
+    --color-sunrise-coral: 255 107 74;           /* #FF6B4A */
+    --color-sunrise-coral-light: 255 138 112;    /* #FF8A70 */
+    --color-sunrise-coral-dark: 229 90 58;       /* #E55A3A */
+    
+    --color-golden-hour: 255 190 79;             /* #FFBE4F */
+    --color-golden-hour-light: 255 208 128;      /* #FFD080 */
+    --color-golden-hour-dark: 229 160 48;        /* #E5A030 */
+    
+    /* Coffee Essence — Supporting Browns */
+    --color-espresso-dark: 61 35 23;             /* #3D2317 */
+    --color-coffee-medium: 107 68 35;            /* #6B4423 */
+    --color-coffee-light: 139 99 68;             /* #8B6344 */
+    --color-mocha-cream: 196 164 132;            /* #C4A484 */
+    
+    /* Surfaces — Backgrounds & Cards */
+    --color-latte-cream: 255 245 230;            /* #FFF5E6 */
+    --color-latte-cream-warm: 255 240 217;       /* #FFF0D9 */
+    --color-ceramic-white: 253 252 249;          /* #FDFCF9 */
+    --color-paper-aged: 249 243 232;             /* #F9F3E8 */
+    
+    /* Accent — Refreshing Mint */
+    --color-mint-fresh: 184 230 212;             /* #B8E6D4 */
+    --color-mint-deep: 126 205 176;              /* #7ECDB0 */
+    --color-teal-retro: 78 205 196;              /* #4ECDC4 */
+    
+    /* Semantic */
+    --color-success: 124 179 66;                 /* #7CB342 */
+    --color-error: 229 57 53;                    /* #E53935 */
+    --color-warning: 255 193 7;                  /* #FFC107 */
+    --color-info: 78 205 196;                    /* #4ECDC4 */
+    
+    /* Decorative */
+    --color-tile-pattern-1: 255 228 204;         /* #FFE4CC */
+    --color-tile-pattern-2: 255 212 184;         /* #FFD4B8 */
+    
+    /* ─────────────────────────────────────────────────────────────
+       TYPOGRAPHY SYSTEM - CSS Variables mapped to Google Fonts
+       ───────────────────────────────────────────────────────────── */
+    --font-display: var(--font-fraunces), serif;
+    --font-body: var(--font-dm-sans), sans-serif;
+    
+    /* Font Sizes — Fluid Scale */
+    --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.8125rem);
+    --text-sm: clamp(0.8125rem, 0.77rem + 0.21vw, 0.9375rem);
+    --text-base: clamp(0.9375rem, 0.89rem + 0.25vw, 1.0625rem);
+    --text-lg: clamp(1.0625rem, 1rem + 0.31vw, 1.25rem);
+    --text-xl: clamp(1.25rem, 1.16rem + 0.45vw, 1.5rem);
+    --text-2xl: clamp(1.5rem, 1.36rem + 0.71vw, 1.875rem);
+    --text-3xl: clamp(1.875rem, 1.65rem + 1.12vw, 2.5rem);
+    --text-4xl: clamp(2.5rem, 2.1rem + 2vw, 3.5rem);
+    --text-5xl: clamp(3rem, 2.5rem + 2.5vw, 4.5rem);
+    
+    /* ─────────────────────────────────────────────────────────────
+       SPACING SYSTEM — 8pt Grid
+       ───────────────────────────────────────────────────────────── */
+    --space-0: 0;
+    --space-px: 1px;
+    --space-0-5: 0.125rem;   /* 2px */
+    --space-1: 0.25rem;      /* 4px */
+    --space-2: 0.5rem;       /* 8px */
+    --space-3: 0.75rem;      /* 12px */
+    --space-4: 1rem;         /* 16px */
+    --space-5: 1.25rem;      /* 20px */
+    --space-6: 1.5rem;       /* 24px */
+    --space-8: 2rem;         /* 32px */
+    --space-10: 2.5rem;      /* 40px */
+    --space-12: 3rem;        /* 48px */
+    --space-16: 4rem;        /* 64px */
+    --space-20: 5rem;        /* 80px */
+    --space-24: 6rem;        /* 96px */
+    --space-32: 8rem;        /* 128px */
+    
+    /* ─────────────────────────────────────────────────────────────
+       BORDER RADIUS — Soft & Rounded (70s Aesthetic)
+       ───────────────────────────────────────────────────────────── */
+    --radius-none: 0;
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-2xl: 48px;
+    --radius-full: 9999px;
+    
+    /* ─────────────────────────────────────────────────────────────
+       SHADOWS — Warm & Inviting
+       ───────────────────────────────────────────────────────────── */
+    --shadow-color: 107 68 35;
+    --shadow-warm: 0 2px 8px rgb(var(--shadow-color) / 0.15);
+    --shadow-md: 0 4px 16px rgb(var(--shadow-color) / 0.15);
+    --shadow-lg: 0 8px 32px rgb(var(--shadow-color) / 0.15);
+    --shadow-xl: 0 16px 48px rgb(var(--shadow-color) / 0.2);
+    --shadow-glow-coral: 0 0 40px rgb(var(--color-sunrise-coral) / 0.2);
+    --shadow-button: 0 4px 0 rgb(var(--color-sunrise-coral-dark) / 1);
+    
+    /* ─────────────────────────────────────────────────────────────
+       ANIMATION — Motion Tokens
+       ───────────────────────────────────────────────────────────── */
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-smooth: cubic-bezier(0.23, 1, 0.32, 1);
+    
+    --duration-fast: 150ms;
+    --duration-normal: 300ms;
+    --duration-slow: 500ms;
+    
+    /* ─────────────────────────────────────────────────────────────
+       LAYOUT
+       ───────────────────────────────────────────────────────────── */
+    --container-max: 1200px;
+    --nav-height: 80px;
+    
+    /* ─────────────────────────────────────────────────────────────
+       Z-INDEX SCALE
+       ───────────────────────────────────────────────────────────── */
+    --z-base: 0;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-overlay: 300;
+    --z-modal: 400;
+    --z-toast: 500;
+  }
+}
