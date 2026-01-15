@@ -38,61 +38,60 @@ export function Header() {
   return (
     <header
       className={cn(
-        "fixed top-0 left-0 right-0 z-sticky transition-all duration-300 border-b-4",
+        "header transition-all duration-300",
         isScrolled
-          ? "bg-espresso-dark/95 backdrop-blur-md border-sunrise-coral py-2 shadow-lg"
-          : "bg-transparent border-transparent py-4"
+          ? "py-2 bg-espresso-dark/95 border-b-3 border-sunrise-amber shadow-lg"
+          : "py-4 bg-espresso-dark/95 border-b-3 border-sunrise-amber"
       )}
+      role="banner"
     >
-      <div className="container flex items-center justify-between">
-        {/* Logo */}
+      <div className="container header__inner flex items-center justify-between h-[80px]">
+        {/* Logo with 70s Flair Verbatim */}
         <Link 
           href="/" 
-          className="flex flex-col gap-0.5 group hover:scale-105 transition-transform duration-300"
+          className="logo flex flex-col gap-1 hover:scale-[1.03] transition-transform duration-300"
           aria-label="Morning Brew Collective Home"
         >
-          <span className="font-display text-2xl font-extrabold text-latte-cream tracking-tight">
+          <span className="logo__main font-display text-2xl font-extrabold text-cream-white tracking-tight">
             Morning Brew
           </span>
-          <span className="font-display text-xs font-bold text-sunrise-coral uppercase tracking-[0.15em]">
+          <span className="logo__sub font-display text-[0.75rem] font-semibold text-sunrise-amber uppercase tracking-[0.15em]">
             Collective
           </span>
         </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:block">
-          <ul className="flex gap-8">
-            {["Menu", "Our Story", "Visit Us", "Order"].map((item) => {
-              const href = 
-                item === "Menu" ? "/menu" :
-                item === "Our Story" ? "/heritage" :
-                item === "Visit Us" ? "/locations" :
-                item === "Order" ? "/menu" : "/";
-              return (
-                <li key={item}>
-                  <Link
-                    href={href as Route}
-                    className="relative text-latte-cream font-bold text-base hover:text-sunrise-coral transition-colors duration-200 group py-2"
-                  >
-                    {item}
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-sunrise-coral transition-all duration-300 group-hover:w-full rounded-full" />
-                  </Link>
-                </li>
-              );
-            })}
+        {/* Desktop Navigation Verbatim */}
+        <nav className="nav hidden md:block" aria-label="Main navigation">
+          <ul className="nav__list flex gap-8">
+            {[
+              { label: "Menu", href: "/menu" },
+              { label: "Our Story", href: "/heritage" },
+              { label: "Visit Us", href: "/locations" },
+              { label: "Order", href: "/menu" }
+            ].map((item) => (
+              <li key={item.label}>
+                <Link
+                  href={item.href as Route}
+                  className="nav__link relative font-bold text-base text-cream-white px-4 py-2 rounded-full hover:text-sunrise-amber transition-all duration-300 group"
+                >
+                  {item.label}
+                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[24px] h-[3px] bg-sunrise-amber rounded-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                </Link>
+              </li>
+            ))}
           </ul>
         </nav>
 
-        {/* Actions */}
-        <div className="flex items-center gap-4">
+        {/* Header Actions Verbatim */}
+        <div className="header__actions flex items-center gap-4">
           <CartSheet>
             <button
-              className="relative w-12 h-12 flex items-center justify-center bg-sunrise-coral/15 rounded-full hover:bg-sunrise-coral hover:scale-110 transition-all duration-300 group"
+              className="cart-btn relative w-12 h-12 flex items-center justify-center bg-sunrise-amber/15 rounded-full hover:bg-sunrise-amber hover:scale-110 transition-all duration-300 group"
               aria-label={`Shopping cart, ${itemCount} items`}
             >
-              <ShoppingCart className="w-6 h-6 text-latte-cream stroke-[2]" />
+              <ShoppingCart className="w-6 h-6 text-cream-white stroke-[2]" />
               {itemCount > 0 && (
-                <span className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1 bg-sunrise-coral text-white text-xs font-bold flex items-center justify-center rounded-full border-2 border-espresso-dark animate-in zoom-in duration-300">
+                <span className="cart-btn__count absolute -top-1 -right-1 min-w-[20px] h-5 bg-coral-pop text-white text-[0.75rem] font-bold flex items-center justify-center rounded-full border-2 border-espresso-dark animate-in zoom-in duration-300">
                   {itemCount}
                 </span>
               )}
@@ -100,48 +99,52 @@ export function Header() {
           </CartSheet>
 
           <button
-            className="md:hidden p-2 text-latte-cream"
+            className="menu-toggle flex flex-col gap-[5px] p-2 rounded-sm md:hidden"
             onClick={() => setIsMobileMenuOpen(true)}
-            aria-label="Open menu"
+            aria-expanded={isMobileMenuOpen}
+            aria-controls="mobile-menu"
+            aria-label="Toggle menu"
           >
-            <Menu className="w-8 h-8" />
+            <span className="menu-toggle__line w-6 h-[2px] bg-cream-white rounded-full transition-all duration-300" />
+            <span className="menu-toggle__line w-6 h-[2px] bg-cream-white rounded-full transition-all duration-300" />
+            <span className="menu-toggle__line w-6 h-[2px] bg-cream-white rounded-full transition-all duration-300" />
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
-      <div
+      {/* Mobile Menu Overlay Verbatim */}
+      <nav
+        id="mobile-menu"
         className={cn(
-          "fixed inset-0 bg-espresso-dark z-overlay flex flex-col items-center justify-center gap-8 transition-transform duration-500",
+          "mobile-menu fixed inset-0 bg-espresso-dark z-overlay flex flex-col items-center justify-center gap-8 transition-transform duration-500",
           isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
+        aria-hidden={!isMobileMenuOpen}
       >
         <button
-          className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center bg-white/10 rounded-full text-latte-cream hover:bg-sunrise-coral transition-colors"
+          className="mobile-menu__close absolute top-6 right-6 w-12 h-12 flex items-center justify-center bg-white/10 rounded-full text-cream-white hover:bg-sunrise-amber transition-colors text-2xl"
           onClick={() => setIsMobileMenuOpen(false)}
           aria-label="Close menu"
         >
-          <X className="w-8 h-8" />
+          ×
         </button>
 
-        {["Menu", "Our Story", "Visit Us", "Order"].map((item) => {
-          const href = 
-            item === "Menu" ? "/menu" :
-            item === "Our Story" ? "/heritage" :
-            item === "Visit Us" ? "/locations" :
-            item === "Order" ? "/menu" : "/";
-          return (
-            <Link
-              key={item}
-              href={href as Route}
-              className="font-display text-4xl font-bold text-latte-cream hover:text-sunrise-coral transition-colors"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {item}
-            </Link>
-          );
-        })}
-      </div>
+        {[
+          { label: "Menu", href: "/menu" },
+          { label: "Our Story", href: "/heritage" },
+          { label: "Visit Us", href: "/locations" },
+          { label: "Order", href: "/menu" }
+        ].map((item) => (
+          <Link
+            key={item.label}
+            href={item.href as Route}
+            className="mobile-menu__link font-display text-[2rem] font-bold text-cream-white hover:text-sunrise-amber transition-colors"
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
+            {item.label}
+          </Link>
+        ))}
+      </nav>
     </header>
   )
 }

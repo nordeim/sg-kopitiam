@@ -69,7 +69,7 @@ const PRODUCTS = [
     tag: "Breakfast Classic",
     spice: 0,
     image: "🍞",
-    bg: "bg-golden-hour-light"
+    bg: "bg-butter-toast"
   },
   {
     id: "roti-prata",
@@ -80,7 +80,7 @@ const PRODUCTS = [
     tag: "Indian Influence",
     spice: 2,
     image: "🥐",
-    bg: "bg-sunrise-coral"
+    bg: "bg-terracotta-warm"
   }
 ]
 
@@ -92,20 +92,20 @@ export default function MenuPage() {
     : PRODUCTS.filter(p => p.category === filter)
 
   return (
-    <div className="bg-sunrise-coral min-h-screen relative pt-[120px] pb-24 overflow-hidden">
-      {/* Arc Pattern Background */}
-      <div className="absolute inset-0 opacity-[0.15] bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cGF0aCBkPSJNMCA2MCBRMzAgMzAgNjAgNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZmZjUiIHN0cm9rZS13aWR0aD0iMiIvPjwvc3ZnPg==')]" />
+    <div className="bg-terracotta-warm min-h-screen relative pt-[120px] pb-24 overflow-hidden">
+      {/* Arc Pattern Background Verbatim */}
+      <div className="absolute inset-0 opacity-30 bg-texture-arcs bg-[length:60px_60px]" />
 
       <div className="container relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12 animate-in fade-in slide-in-from-bottom-4 duration-700">
-          <h1 className="font-display text-5xl text-latte-cream mb-4">Our Signature Brews</h1>
-          <p className="text-latte-cream/90 text-xl">Crafted with beans roasted in-house since 1973</p>
+          <h2 className="font-display text-5xl text-cream-white mb-4">Our Signature Brews</h2>
+          <p className="text-cream-white/90 text-xl max-w-lg mx-auto">Crafted with beans roasted in-house since 1973</p>
           
-          <div className="flex items-center justify-center gap-4 mt-6 text-golden-hour">
-            <span className="w-16 h-1 bg-current rounded-full" />
-            <CoffeeIcon className="w-8 h-8 fill-current" />
-            <span className="w-16 h-1 bg-current rounded-full" />
+          <div className="flex items-center justify-center gap-4 mt-6">
+            <span className="w-16 h-1 bg-sunrise-amber rounded-full" />
+            <CoffeeIcon className="w-8 h-8 fill-sunrise-amber" />
+            <span className="w-16 h-1 bg-sunrise-amber rounded-full" />
           </div>
         </div>
 
@@ -118,8 +118,8 @@ export default function MenuPage() {
               className={cn(
                 "px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 border-2",
                 filter === cat.id
-                  ? "bg-golden-hour text-espresso-dark border-golden-hour shadow-lg scale-105"
-                  : "bg-white/10 text-latte-cream border-transparent hover:bg-white/20"
+                  ? "bg-sunrise-amber text-espresso-dark border-sunrise-amber shadow-lg scale-105"
+                  : "bg-white/10 text-cream-white border-transparent hover:bg-white/20"
               )}
             >
               {cat.label}
@@ -132,11 +132,11 @@ export default function MenuPage() {
           {filteredProducts.map((product, i) => (
             <article 
               key={product.id}
-              className="group bg-latte-cream rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:rotate-1 hover:shadow-xl relative animate-in fade-in slide-in-from-bottom-8 fill-mode-backwards"
+              className="group bg-cream-white rounded-2xl overflow-hidden shadow-lg transition-all duration-300 hover:-translate-y-2 hover:-rotate-1 hover:shadow-xl relative animate-in fade-in slide-in-from-bottom-8 fill-mode-backwards"
               style={{ animationDelay: `${i * 100}ms` }}
             >
-              {/* Decorative top border */}
-              <div className="absolute top-0 left-0 right-0 h-1.5 bg-[repeating-linear-gradient(90deg,rgb(var(--color-sunrise-coral))_0,rgb(var(--color-sunrise-coral))_10px,transparent_10px,transparent_20px)]" />
+              {/* Ticket Jagged Top Border Verbatim */}
+              <div className="absolute top-0 left-0 right-0 h-1.5 bg-[repeating-linear-gradient(90deg,var(--sunrise-amber)_0,var(--sunrise-amber)_10px,transparent_10px,transparent_20px)]" />
 
               {/* Image Area */}
               <div className={cn("h-[200px] flex items-center justify-center relative overflow-hidden", product.bg)}>
@@ -147,26 +147,26 @@ export default function MenuPage() {
               <div className="p-6 text-espresso-dark">
                 <div className="flex justify-between items-start mb-3">
                   <h3 className="font-bold text-xl m-0">{product.name}</h3>
-                  <span className="font-display font-bold text-xl text-sunrise-coral bg-golden-hour/20 px-3 py-1 rounded-full">
+                  <span className="font-display font-bold text-xl text-terracotta-warm bg-honey-light px-3 py-1 rounded-full">
                     ${product.price}
                   </span>
                 </div>
 
-                <p className="text-sm text-coffee-medium mb-4 leading-relaxed min-h-[60px]">
+                <p className="text-sm text-mocha-medium mb-4 leading-relaxed min-h-[60px]">
                   {product.description}
                 </p>
 
                 <div className="flex justify-between items-center mb-6">
                   <RetroBadge>{product.tag}</RetroBadge>
-                  <div className="flex text-sunrise-coral text-xs gap-0.5">
+                  <div className="flex text-terracotta-warm text-xs gap-0.5">
                     {[...Array(3)].map((_, i) => (
                       <span key={i} className={i < product.spice ? "opacity-100" : "opacity-30"}>★</span>
                     ))}
                   </div>
                 </div>
 
-                <RetroButton className="w-full gap-2 group-hover:bg-sunrise-coral group-hover:text-white">
-                  Add to Cart <span className="bg-golden-hour text-espresso-dark w-5 h-5 rounded-full flex items-center justify-center text-xs">+</span>
+                <RetroButton className="w-full gap-2 group-hover:bg-coral-pop group-hover:text-white">
+                  Add to Cart <span className="bg-sunrise-amber text-espresso-dark w-5 h-5 rounded-full flex items-center justify-center text-xs">+</span>
                 </RetroButton>
               </div>
             </article>
@@ -177,14 +177,14 @@ export default function MenuPage() {
         <div className="text-center mt-12">
           <Link 
             href="/checkout" 
-            className="inline-flex items-center gap-2 font-display font-bold text-xl text-latte-cream border-2 border-latte-cream px-6 py-3 rounded-full hover:bg-latte-cream hover:text-sunrise-coral transition-colors"
+            className="inline-flex items-center gap-2 font-display font-bold text-xl text-cream-white border-2 border-cream-white px-6 py-3 rounded-full hover:bg-cream-white hover:text-terracotta-warm transition-colors"
           >
             Checkout Now →
           </Link>
         </div>
       </div>
 
-      <WaveDivider color="rgb(var(--color-golden-hour))" />
+      <WaveDivider color="var(--sunrise-amber)" />
     </div>
   )
 }
