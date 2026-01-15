@@ -4,11 +4,17 @@ import * as React from "react"
 import Link from "next/link"
 import { ShoppingCart, Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { RetroButton } from "@/components/ui/retro/button"
+import { useCartStore } from "@/stores/cart-store"
+import { CartSheet } from "@/components/cart/cart-sheet"
+import { useKeyboardShortcuts } from "@/hooks/use-keyboard-shortcuts"
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
   const [isScrolled, setIsScrolled] = React.useState(false)
+  const itemCount = useCartStore((state) => state.getItemCount())
+  
+  // Initialize keyboard shortcuts
+  useKeyboardShortcuts()
 
   // Handle scroll effect
   React.useEffect(() => {
@@ -71,15 +77,19 @@ export function Header() {
 
         {/* Actions */}
         <div className="flex items-center gap-4">
-          <button
-            className="relative w-12 h-12 flex items-center justify-center bg-sunrise-coral/15 rounded-full hover:bg-sunrise-coral hover:scale-110 transition-all duration-300 group"
-            aria-label="Shopping cart"
-          >
-            <ShoppingCart className="w-6 h-6 text-latte-cream stroke-[2]" />
-            <span className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1 bg-sunrise-coral text-white text-xs font-bold flex items-center justify-center rounded-full border-2 border-espresso-dark">
-              0
-            </span>
-          </button>
+          <CartSheet>
+            <button
+              className="relative w-12 h-12 flex items-center justify-center bg-sunrise-coral/15 rounded-full hover:bg-sunrise-coral hover:scale-110 transition-all duration-300 group"
+              aria-label={`Shopping cart, ${itemCount} items`}
+            >
+              <ShoppingCart className="w-6 h-6 text-latte-cream stroke-[2]" />
+              {itemCount > 0 && (
+                <span className="absolute -top-1 -right-1 min-w-[20px] h-5 px-1 bg-sunrise-coral text-white text-xs font-bold flex items-center justify-center rounded-full border-2 border-espresso-dark animate-in zoom-in duration-300">
+                  {itemCount}
+                </span>
+              )}
+            </button>
+          </CartSheet>
 
           <button
             className="md:hidden p-2 text-latte-cream"
