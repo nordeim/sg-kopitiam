@@ -50,6 +50,10 @@ please meticulous review, analyze @GEMINI.md , @CLAUDE.md , @Project_Architectur
 
 ---
 
+please meticulous review, analyze @GEMINI.md , @CLAUDE.md , @Project_Architecture_Document.md , @Comprehensive_Project_Understanding.md and @VALIDATED_EXECUTION_PLAN.md to have a deep understanding of the WHAT, WHY and HOW of the project and its codebase design and architecture. current project status: codebase is stable, builds successfully (npm run build), and visually aligned with the 1970s Kopitiam mockup.
+
+---
+
 Awesome job on your meticulous review, analysis and planning. Please keep up the good work in your rigorous and meticulous approach to planning and execution. Now, please meticulously validate your deep understanding of the project against the actual codebase. Next, meticulously plan to best capture your validated deep understanding of the project and its codebase state/status into a markdown document file `Comprehensive_Project_Understanding.md`.
 
 ---
